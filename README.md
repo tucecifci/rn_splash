@@ -6,10 +6,9 @@ Hello everybody! 👋 <br>
 ## 👀 Overview
 
 ### 📷 Screenshot
-![Simulator Screenshot - iPhone 16 Pro - 2025-06-02 at 22 02 03](https://github.com/user-attachments/assets/cd533187-b82e-4a21-9081-6b81ecf77128)
-
-![Simulator Screenshot - iPhone 16 Pro - 2025-06-02 at 22 02 16](https://github.com/user-attachments/assets/b6278388-18e4-43ff-b144-f7b4e11934a6)
-![Simulator Screenshot - iPhone 16 Pro - 2025-06-02 at 22 02 32](https://github.com/user-attachments/assets/7e604cf5-a0d6-4f14-b437-e68f3742e2ab)
+![Ekran Resmi 2025-06-02 22 29 04](https://github.com/user-attachments/assets/fb29f859-e8c8-41d6-b358-71bf05b9cb02)
+![Ekran Resmi 2025-06-02 22 29 18](https://github.com/user-attachments/assets/837c4e72-a058-47a9-85f6-5e0d8bdf2a61)
+![Ekran Resmi 2025-06-02 22 29 40](https://github.com/user-attachments/assets/3b0c5555-b441-4bed-b6b9-602fdb920e9a)
 
 
 ## 👩🏼‍💻 Features
