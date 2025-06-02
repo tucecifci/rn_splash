@@ -6,44 +6,98 @@ import {
   View,
   Image,
 } from "react-native";
+import { useRouter } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 export default function LoginScreen() {
+  const router = useRouter();
+  const correctEmail = "tuce@mail.com";
+  const correctPassword = "123456";
+  const SignupSchema = Yup.object().shape({
+    email: Yup.string().email("Invalid email").required("Required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Required"),
+  });
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Image
-          source={require("../assets/images/girl1jpeg.jpeg")}
-          style={styles.logo}
-        />
-      </View>
-      <View style={styles.loginContainer}>
-      <View style={styles.accountContainer}>
-        <Text style={styles.accountText}>Do you have an account?</Text>
-        <TouchableOpacity>
-          <Text style={styles.getAccountText}>Get One Now</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.loginContainer}>
-        <Text style={styles.loginText}>Log In</Text>
-        <TextInput placeholder="E-posta" style={styles.input} />
-        <TextInput placeholder="Şifre" style={styles.input} />
-      </View>
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      onSubmit={(values) => {
+        if (
+          values.email === correctEmail &&
+          values.password === correctPassword
+        ) {
+          router.replace("/welcome");
+        }
+      }}
+      validationSchema={SignupSchema}
+    >
+      {({
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+      }) => (
+        <SafeAreaView style={styles.container}>
+          <View style={styles.logoContainer}>
+            <Image
+              source={require("../assets/images/girl1jpeg.jpeg")}
+              style={styles.logo}
+            />
+          </View>
+          <View style={styles.loginContainer}>
+            <View style={styles.accountContainer}>
+              <Text style={styles.accountText}>Do you have an account?</Text>
+              <TouchableOpacity>
+                <Text style={styles.getAccountText}>Get One Now</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.loginContainer}>
+              <Text style={styles.loginText}>Log In</Text>
+              <TextInput
+                placeholder="E-posta"
+                style={styles.input}
+                onChangeText={handleChange("email")}
+                onBlur={handleBlur("email")}
+                value={values.email}
+              />
+              {errors.email && (
+                <Text style={styles.errorText}>{errors.email}</Text>
+              )}
+              <TextInput
+                placeholder="Şifre"
+                style={styles.input}
+                onChangeText={handleChange("password")}
+                onBlur={handleBlur("password")}
+                value={values.password}
+              />
+              {errors.password && (
+                <Text style={styles.errorText}>{errors.password}</Text>
+              )}
+            </View>
 
-      <View style={styles.forgetPassword}>
-        <Text style={styles.accountText}>Forget Password?</Text>
-        <TouchableOpacity>
-          <Text style={styles.getAccountText}>Get New</Text>
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity style={styles.loginButton}>
-        <Text style={styles.loginButtonText}>Log In</Text>
-        <MaterialIcons name="east" size={20} color="black" />
-      </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+            <View style={styles.forgetPassword}>
+              <Text style={styles.accountText}>Forget Password?</Text>
+              <TouchableOpacity>
+                <Text style={styles.getAccountText}>Get New</Text>
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity
+              style={styles.loginButton}
+              onPress={() => handleSubmit()}
+            >
+              <Text style={styles.loginButtonText}>Log In</Text>
+              <MaterialIcons name="east" size={20} color="black" />
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      )}
+    </Formik>
   );
 }
 
@@ -85,7 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
   },
-  
+
   loginText: {
     fontSize: 20,
     color: "#12131A",
@@ -120,5 +174,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#12131A",
     fontWeight: "bold",
+  },
+  errorText: {
+    color: "red",
+    fontSize: 10,
+    marginTop: -10,
+    fontWeight: "400",
+    letterSpacing: 0.7,
   },
 });
