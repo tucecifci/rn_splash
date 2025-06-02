@@ -7,7 +7,6 @@ Hello everybody! 👋 <br>
 
 ### 📷 Screenshot
 <img width="328" alt="Ekran Resmi 2025-06-02 22 31 24" src="https://github.com/user-attachments/assets/3a52fa0d-b655-4521-b81e-8e5207985d16" />
-
 ![Ekran Resmi 2025-06-02 22 29 18](https://github.com/user-attachments/assets/837c4e72-a058-47a9-85f6-5e0d8bdf2a61)
 ![Ekran Resmi 2025-06-02 22 29 40](https://github.com/user-attachments/assets/3b0c5555-b441-4bed-b6b9-602fdb920e9a)
 
