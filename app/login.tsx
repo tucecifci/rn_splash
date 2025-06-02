@@ -6,15 +6,14 @@ import {
   View,
   Image,
 } from "react-native";
-import { useRouter } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import Toast from "react-native-toast-message";
 
 export default function LoginScreen() {
-  const router = useRouter();
-  const correctEmail = "tuce@mail.com";
+  const correctEmail = "Tuce@mail.com";
   const correctPassword = "123456";
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
@@ -26,23 +25,26 @@ export default function LoginScreen() {
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
-      onSubmit={(values) => {
+      onSubmit={(values, { resetForm }) => {
         if (
           values.email === correctEmail &&
           values.password === correctPassword
         ) {
-          router.replace("/welcome");
+          Toast.show({
+            type: "success",
+            text1: "You are logged in successfully",
+            text2: "Welcome 👋",
+            visibilityTime: 4000,
+            autoHide: true,
+            topOffset: 60,
+            bottomOffset: 40,
+          });
+          resetForm();
         }
       }}
       validationSchema={SignupSchema}
     >
-      {({
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        values,
-        errors,
-      }) => (
+      {({ handleChange, handleBlur, handleSubmit, values, errors, resetForm }) => (
         <SafeAreaView style={styles.container}>
           <View style={styles.logoContainer}>
             <Image
@@ -75,6 +77,7 @@ export default function LoginScreen() {
                 onChangeText={handleChange("password")}
                 onBlur={handleBlur("password")}
                 value={values.password}
+                secureTextEntry={true}
               />
               {errors.password && (
                 <Text style={styles.errorText}>{errors.password}</Text>

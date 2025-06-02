@@ -1,17 +1,13 @@
-// import { Stack, Slot } from "expo-router";
 
-// export default function RootLayout() {
-//   return (
-//     <Stack
-//       screenOptions={{
-//         headerShown: false,
-//       }}
-//       initialRouteName="splash"
-//     />
-//   );
-// }
 import { Slot } from "expo-router";
+import { View } from "react-native";
+import Toast from 'react-native-toast-message';
 
 export default function RootLayout() {
-  return <Slot />;
+  return (
+    <View style={{ flex: 1 }}>
+      <Slot />
+      <Toast />
+    </View>
+  );
 }
