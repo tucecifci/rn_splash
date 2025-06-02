@@ -1,29 +1,39 @@
+import { useEffect } from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { useRouter } from "expo-router";
-import { useEffect, useRef } from "react";
-import { Animated, StyleSheet, Text, View } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 
-export default function Index() {
+export default function SplashScreen() {
   const router = useRouter();
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const opacity = useSharedValue(0);
 
   useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 2000,
-      useNativeDriver: true,
-    }).start();
-
+    opacity.value = withTiming(1, { duration: 3000 });
     const timer = setTimeout(() => {
       router.replace("/login");
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [router]);
+  }, []);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+    };
+  });
 
   return (
     <View style={styles.container}>
-      <Animated.View style={{ opacity: fadeAnim }}>
-        <Text style={styles.title}>Hoş Geldiniz</Text>
+      <Animated.View style={[animatedStyle, styles.contentContainer]}>
+        <Image
+          source={require("../assets/images/girl1jpeg.jpeg")}
+          style={styles.image}
+        />
+        <Text style={styles.text}>ÉTOILE</Text>
       </Animated.View>
     </View>
   );
@@ -34,10 +44,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#0B1389",
   },
-  title: {
+  contentContainer: {
+    gap: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  text: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 800,
+    color: "#ECDFCF",
+    letterSpacing: 10,
+    textAlign: "center",
+  },
+  image: {
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    resizeMode: "center",
   },
 });
