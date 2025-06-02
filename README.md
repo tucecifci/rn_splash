@@ -1,8 +1,44 @@
-# Welcome to your Expo app 👋
+# Welcome to RN SPLASH
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Hello everybody! 👋 <br>
+✨ The Login App is a simple mobile application that welcomes users with a splash screen and guides them to a login form. Users can enter their email and password, and upon successful submission, they receive a confirmation message. This project was developed using JavaScript, React Native, and StyleSheet.
 
-## Get started
+## 👀 Overview
+
+### 📷 Screenshot
+![Simulator Screenshot - iPhone 16 Pro - 2025-06-02 at 22 02 03](https://github.com/user-attachments/assets/cd533187-b82e-4a21-9081-6b81ecf77128)
+
+![Simulator Screenshot - iPhone 16 Pro - 2025-06-02 at 22 02 16](https://github.com/user-attachments/assets/b6278388-18e4-43ff-b144-f7b4e11934a6)
+![Simulator Screenshot - iPhone 16 Pro - 2025-06-02 at 22 02 32](https://github.com/user-attachments/assets/7e604cf5-a0d6-4f14-b437-e68f3742e2ab)
+
+
+## 👩🏼‍💻 Features
+
+- Splash Screen: Users are greeted with a simple and engaging splash screen that features the brand logo.
+
+- Login Form: Users can enter their email and password to access the app.
+
+- Form Validation: Input fields are validated for correct email format and password length using Formik and Yup.
+
+- Success Message: Upon successful login, users receive a friendly success message displayed with React Native Toast.
+
+- Minimalist Design: A clean and user-friendly design that focuses on clarity and ease of use.
+  
+## 💡 Technologies Used
+
+### 1. **JavaScript**
+- Used to handle logic and user interactions, such as form submission and validation feedback.
+
+### 2. **React Native**
+- **Component-based architecture**: The app is structured into reusable components like the splash screen and login form.
+- **State Management**: React Native's state mechanism, along with libraries like **Formik**, manages form inputs and validation states.
+- **React Hooks**: Hooks such as `useState` and `useEffect` are used for managing form states and animation lifecycles.
+
+### 3. **StyleSheet (React Native CSS)**
+- **Custom Styling**: Provides a clean and minimalist user interface adapted to mobile screens.
+- **Responsive Design**: Ensures the app looks good and functions well across various screen sizes and devices.
+
+## 🤔 Installation
 
 1. Install dependencies
 
@@ -33,18 +69,32 @@ When you're ready, run:
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🧠 What I Learned
 
-## Learn more
+- **React Native Component Lifecycle**: Learned how to create and manage React Native components like SplashScreen and LoginForm.
+- **State Management**: Built a dynamic form management system using React Native state and Formik.
+- **Form Validation**: Applied Yup for input validation, ensuring correct data entry before submission.
+- **User Notifications**: Integrated React Native Toast to display feedback messages, improving user experience.
+- **Mobile UI Design**: Gained experience designing responsive and user-friendly mobile interfaces using React Native's StyleSheet.
 
-To learn more about developing your project with Expo, look at the following resources:
+## ⏰ Future Updates
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Add support for multiple users and account registration.
+- Implement password recovery and reset functionality.
+- Enhance the splash screen with more interactive animations.
+- Integrate persistent login using local storage or async storage.
+- Expand form validation to include stronger password rules and error handling.
 
-## Join the community
 
-Join our community of developers creating universal apps.
+## Contribution
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+If you want to contribute to the project, feel free to open a pull request or report issues on GitHub. All feedback is welcome!
+
+
+## 💌 Contact
+
+If you have any questions, feel free to reach out.
+- Tuğçe Çifci : [@tucecifci](https://github.com/tucecifci)
+- Linkedin : https://www.linkedin.com/in/tugcecifcii/
+- Medium: https://medium.com/@tucecifcii
+
